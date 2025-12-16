@@ -45,7 +45,8 @@ On the WHR90 side I use a male DE9 connector to plug into the ventilation unit f
 | 6       | A             | Orange-white | 
 | 7       | B             | Orange       | 
 
-> [!NOTE] According to the [manual](https://cdn.webshopapp.com/shops/42891/files/382461178/fairair-manual-bergschenhoek-r-vent-whr90-91.pdf) the DE9 port should be wired differently:
+> [!NOTE] 
+> According to the [manual](https://cdn.webshopapp.com/shops/42891/files/382461178/fairair-manual-bergschenhoek-r-vent-whr90-91.pdf) the DE9 port should be wired differently:
 > - 1 VCC
 > - 5 Ground
 > - 8 B
