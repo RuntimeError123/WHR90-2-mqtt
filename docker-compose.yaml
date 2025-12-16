@@ -4,10 +4,10 @@ services:
     restart: unless-stopped
     environment:
       # EW11 Modbus/TCP gateway
-      EW11_IP: "192.168.1.50"        # mandatory
-      EW11_PORT: "502"               # default: 502
-      SOCKET_TIMEOUT: "2.0"          # default: 2.0
-      POLL_INTERVAL_SEC: "5"         # default: 5
+      EW11_IP: "192.168.1.50"         # mandatory
+      EW11_PORT: "502"                # default: 502
+      SOCKET_TIMEOUT: "2.0"           # default: 2.0
+      POLL_INTERVAL_SEC: "5"          # default: 5
 
       # MQTT broker settings
       MQTT_BROKER: "mqtt.example.com" # default: localhost
@@ -24,5 +24,5 @@ services:
 
       # Metadata
       MQTT_PREFIX: "whr90"            # default: whr90
-      NAME: "WHR90 Ventilation Unit"  # default: WHR90 Ventilation Unit
-      MANUFACTURER: "R-Vent"          # default: R-Vent
+      NAME: "WHR90"                   # default: WHR90 Ventilation Unit
+      MANUFACTURER: "J.E. Storkair"   # default: R-Vent
