@@ -25,4 +25,4 @@ services:
       # Metadata
       MQTT_PREFIX: "whr90"            # default: whr90
       NAME: "WHR90"                   # default: WHR90 Ventilation Unit
-      MANUFACTURER: "J.E. Storkair"   # default: R-Vent
+      MANUFACTURER: "J.E. Storkair"   # default: J.E. Storkair
