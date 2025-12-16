@@ -159,13 +159,14 @@ docker compose up -d
 Or add it as stack in Portainer or Dockge.
 
 ## Notes
-- Docker (and Docker Compose) must be installed for the script to work
+- Docker and Docker Compose must be installed for the script to work
 - The script assumes that an MQTT broker is available. I use Eclipse Mosquitto.
 - The script supports three MQTT communication scenarios:
-  - Unencrypted traffic, plain text
+  - Unencrypted plain text traffic
   - Encrypted, authenticated with client certificate and private key
   - Encrypted, authenticated with username and password
   When using encrypted traffic, you can configure the script to allow self‑signed certificates or certificates with a mismatched hostname using the `MQTT_TLS_INSECURE` variable. If you have a self-signed certificate with your own CA (and your MQTT broker hostname) matches the certificate, you can trust your own CA by mapping your CA's public key in the Docker container as a volume and using the `CA_CERT` variable. 
-- I noticed some interesting quirks while working on this project (20V on a 12V header, RS485 port wired differently than written in the manual), so using this script and connecting devices to your unit is completely at your own responsibility. Please verify your connections and use a multimeter to verify voltages before powering on.
+- Currently I haven't been able to use the RS485 port to write data to the ventilation unit. At the moment, only temperatures, fan speed percentages, and RPMs can be read. If someone knows what we can send to change the fan speed, please let me know.
+- I noticed some odd quirks while working on this project (20V on a 12V header, RS485 port wired differently than written in the manual), so using this script and connecting anything to your unit is entirely your own responsibility. Please verify your connections and use a multimeter to verify voltages before powering on.
 
     
