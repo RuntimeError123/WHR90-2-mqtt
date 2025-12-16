@@ -1,4 +1,6 @@
 # WHR90 Ventilation Unit to MQTT Bridge
+## Author: RuntimeError123 / L. Bosch
+## MIT License
 
 This project provides a lightweight Dockerized Python service that connects a **J.E. Storkair / Zehnder / R-Vent / Bergschenhoek WHR90 ventilation unit** via an **Elfin EW11A RS485/TCP gateway** and publishes sensor data to an MQTT broker. It also supports Home Assistant discovery, so your ventilation unit appears automatically in Home Assistant, exposing temperature, fan speed, and binary sensors.
 

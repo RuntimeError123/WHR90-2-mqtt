@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-WHR90 Ventilation Unit MQTT bridge (env-configured)
+WHR90 Ventilation Unit MQTT bridge 
+Author: RuntimeError123 / L. Bosch
+MIT License
 
 - Retrieves temperature and fan status via EW11 (TCP).
 - Publishes values to MQTT including Home Assistant discovery.
