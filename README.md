@@ -94,7 +94,7 @@ The EW11 Modbus/TCP gateway must be configured correctly before running this con
 
 ---
 
-## ⚙️ Environment Variables
+## Environment Variables
 
 All configuration is done via environment variables in docker compose. Below is a full list with configuration variables:
 
