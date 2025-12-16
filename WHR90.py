@@ -20,14 +20,20 @@ import socket
 import time
 import signal
 import json
+from datetime import datetime
 import paho.mqtt.client as mqtt
 
 _running = True
 
+def log(msg: str):
+    """Print message with timestamp (YYYY-MM-DD HH:MM:SS)."""
+    ts = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    print(f"[{ts}] {msg}")
+
 def handle_exit(signum, frame):
     """Signal handler for graceful shutdown."""
     global _running
-    print("Exit signal received, shutting down...")
+    log("Exit signal received, shutting down...")
     _running = False
 
 signal.signal(signal.SIGINT, handle_exit)
@@ -62,7 +68,7 @@ def send(cmd_hex, ip, port, timeout):
             s.sendall(frame)
             return s.recv(256)
     except (socket.timeout, TimeoutError, OSError) as e:
-        print(f"Send error: {e}")
+        log(f"Send error: {e}")
         return None
 
 def parse_temperature(resp):
@@ -134,7 +140,7 @@ def publish_discovery(client, prefix, name, manufacturer):
         if unit:
             config["unit_of_measurement"] = unit
         topic = f"homeassistant/{entity_type}/{prefix}_{key}/config"
-        print(f"Publishing discovery for {sname} → {topic}")
+        log(f"Publishing discovery for {sname} → {topic}")
         client.publish(topic, json.dumps(config), retain=True)
 
 def tls_version_from_env():
@@ -189,7 +195,7 @@ def setup_mqtt_client():
 def main():
     EW11_IP = os.getenv("EW11_IP")
     if not EW11_IP:
-        print("EW11_IP is not set. Please provide EW11_IP environment variable.")
+        log("EW11_IP is not set. Please provide EW11_IP environment variable.")
         return
     EW11_PORT = getenv_int("EW11_PORT", 502)
     SOCKET_TIMEOUT = getenv_float("SOCKET_TIMEOUT", 2.0)
@@ -225,7 +231,7 @@ def main():
                 publish_binary(client, f"{MQTT_PREFIX}/fanstatus/exhaust_active", extract_active)
 
                 exhaust_str = f"{exhaust_c:.1f}" if exhaust_c is not None else "-"
-                print(
+                log(
                     f"Exhaust={exhaust_str}°C | "
                     f"sup%={supply_pct or '-'} ext%={extract_pct or '-'} | "
                     f"supRPM={supply_rpm or '-'} extRPM={extract_rpm or '-'} | "
@@ -233,7 +239,7 @@ def main():
                 )
 
             except Exception as e:
-                print(f"Communication error: {e}. Retry in 5s...")
+                log(f"Communication error: {e}. Retry in 5s...")
                 time.sleep(5)
                 continue
 
@@ -241,7 +247,7 @@ def main():
     finally:
         client.loop_stop()
         client.disconnect()
-        print("Shutdown complete.")
+        log("Shutdown complete.")
 
 if __name__ == "__main__":
     main()
