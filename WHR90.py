@@ -195,8 +195,8 @@ def main():
     SOCKET_TIMEOUT = getenv_float("SOCKET_TIMEOUT", 2.0)
 
     MQTT_PREFIX = os.getenv("MQTT_PREFIX", "whr90")
-    NAME = os.getenv("NAME", "WHR90 Ventilation Unit")
-    MANUFACTURER = os.getenv("MANUFACTURER", "R-Vent")
+    NAME = os.getenv("NAME", "WHR90")
+    MANUFACTURER = os.getenv("MANUFACTURER", "J.E. Storkair")
 
     # Commands
     CMD_TEMP = "07 F0 00 85 00 32 07 0F"
