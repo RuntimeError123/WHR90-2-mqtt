@@ -70,19 +70,14 @@ On the WHR90 side I use a male DE9 connector to plug into the ventilation unit f
 
 | Pin DE9 | Purpose WHR90 | Color        |
 |---------|---------------|--------------|
-| 1       | Ground        | Brown        |
-| 5       | VCC           | Blue         |
-| 6       | A             | Orange-white | 
-| 7       | B             | Orange       | 
+| 1       | VCC           | Blue         |
+| 5       | Ground        | Brown        |
+| 8       | B             | Orange       | 
+| 9       | A             | Orange-white | 
 
 > [!NOTE] 
-> According to the [manual](https://cdn.webshopapp.com/shops/42891/files/382461178/fairair-manual-bergschenhoek-r-vent-whr90-91.pdf) the DE9 port should be wired differently:
-> - 1 VCC
-> - 5 Ground
-> - 8 B
-> - 9 A
-> Check how this is wired on your unit.
-> Alternatively you can also open the ventilation unit and screw the brown, blue, orange-white and orange cable under the corresponding screw terminals on the WHR90 PCB.
+> Keep in mind that the ventilation unit uses a female DE9 port, so pin 1 is located on the top right of the port (seen from the front). Pin 1 on the male DE9 connector is located on the top left. When in doubt, use a multimeter to verify.
+> Alternatively you can also open the ventilation unit and screw the brown, blue, orange-white and orange cable directly under the corresponding screw terminals on the WHR90 PCB.
 
 
 > [!WARNING]
